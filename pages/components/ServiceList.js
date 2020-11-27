@@ -1,6 +1,6 @@
 import Service from "../classes/Service"
-import HorizontalServiceCard from "./HorizontalServiceCard"
 import VerticalServiceCard from "./VerticalServiceCard"
+import Link from 'next/link'
 
 var tempService = [
     new Service("1", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "1"),
@@ -28,9 +28,13 @@ const ServiceList = () => {
                 )}
             </div>
             <div className="flex">
-                <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none" href="/listing">Previous</a>
+                <Link href="/">
+                    <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Previous</a>
+                </Link>
                 <div className="flex-grow"></div>
-                <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none" href="/listing">Next</a>
+                <Link href="/">
+                    <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Next</a>
+                </Link>
             </div>
         </section>
     )

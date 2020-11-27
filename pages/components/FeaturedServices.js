@@ -1,5 +1,6 @@
 import Service from "../classes/Service"
 import HorizontalServiceCard from "./HorizontalServiceCard"
+import Link from 'next/link'
 
 var tempService = [
     new Service("1", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "1"),
@@ -22,7 +23,9 @@ const FeaturedServices = () => {
                 )}
             </div>
             <div className="flex justify-end">
-                <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none" href="/listing">Browse More</a>
+                <Link href="/listing">
+                    <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Browse More</a>
+                </Link>
             </div>
         </section>
     )

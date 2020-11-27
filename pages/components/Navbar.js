@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import NavbarItems from "./NavbarItems.js"
 import Search from "./Search.js"
+import Link from 'next/link'
 
 const Navbar = ({position, isLight, showSearch}) => {
     // useState to expand or hide the navigation menu for mobile
@@ -9,9 +10,11 @@ const Navbar = ({position, isLight, showSearch}) => {
             <div className={`w-full z-50 ${position}`}>
                 <nav className="container mx-auto flex items-center justify-between w-full px-6 pt-6 pb-2">
                     {/* Site logo */}
-                    <a href="/" className={`${isLight ? "text-primary" : "text-white"} flex items-center flex-shrink-0 mr-6`}>
-                        <span className="font-body font-bold text-xl tracking-tight">Site Title</span>
-                    </a>
+                    <Link href="/">
+                        <a className={`${isLight ? "text-primary" : "text-white"} flex items-center flex-shrink-0 mr-6`}>
+                            <span className="font-body font-bold text-xl tracking-tight">Site Title</span>
+                        </a>
+                    </Link>
                     {/* Search bar */}
                     {showSearch === true && <Search classes="flex-grow shadow"/>}
                     {/* Hamburger icon */}
