@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar.js"
 import { useRouter } from "next/router"
 import Service from "./classes/Service"
 import CategoryBar from "./components/CategoryBar.js"
+import ServiceOverview from "./components/ServiceOverview.js"
+import ServicePricing from "./components/ServicePricing.js"
 
 const ServiceDetail = () => {
   const router = useRouter()
@@ -20,6 +22,14 @@ const ServiceDetail = () => {
       <main className="mx-auto container min-h-screen">
           <Navbar showSearch={true} isLight={true} />
           <CategoryBar />
+          <div className="flex items-stretch mx-auto w-11/12 py-6">
+              <div className="w-7/12">
+                  <ServiceOverview service={service} />
+              </div>
+              <div className="flex items-center pl-4 w-5/12">
+                  <ServicePricing service={service} />
+              </div>
+          </div>
       </main>
     </div>
   )

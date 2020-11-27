@@ -12,7 +12,7 @@ const VerticalServiceCard = ({service}) => {
                 <div className="flex items-center border-t px-3 py-2">
                     <h4>⭐ {service.rating}</h4>
                     <p className="flex-grow text-sm text-gray-600 text-right">Price starts at 
-                        <span className="text-base font-semibold text-primary-dark"> {service.estimatedCost}</span>
+                        <span className="text-base font-semibold text-primary-dark"> ₱{service.estimatedCost}</span>
                     </p>
                 </div>
             </a>
