@@ -1,13 +1,17 @@
-import Head from 'next/head'
+import Head from "next/head"
+import Hero from "./components/Hero.js"
 
-export default () => (
-  <div className="container bg-white">
+const Index = () => (
+  <div className="container">
     <Head>
       <title>Service Board</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
     <main className="container">
+      <Hero />
     </main>
   </div>
 )
+
+export default Index
