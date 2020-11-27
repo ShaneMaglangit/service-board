@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import NavbarItems from "./NavbarItems.js"
 
-const Navbar = () => {
+const Navbar = ({position}) => {
     // useState to expand or hide the navigation menu for mobile
     const [isExpanded, toggleExpansion] = useState(false)
     return (
         <>
             {/* Wrapper for the navigation bar */}
-            <div className="w-full z-50">
-                <nav className="container mx-auto flex flex-wrap items-center justify-between w-full p-6"Z>
+            <div className={`w-full z-50 ${position}`}>
+                <nav className="container mx-auto flex flex-wrap items-center justify-between w-full p-6">
                     {/* Site logo */}
                     <a href="/" className="flex items-center flex-shrink-0 text-white mr-6">
                         <span className="font-body font-bold text-xl tracking-tight">Site Title</span>
