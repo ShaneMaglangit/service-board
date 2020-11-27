@@ -1,10 +1,11 @@
 class Service {
-    constructor(id, name, category, description, price, isHourly, location, provider, providerId) {
+    constructor(id, thumbnail, title, category, description, estimatedCost, isHourly, location, provider, providerId) {
         this.id = id;
-        this.name = name;
+        this.thumbnail = thumbnail;
+        this.title = title;
         this.category = category;
         this.description = description;
-        this.price = price;
+        this.estimatedCost = estimatedCost;
         this.isHourly = isHourly;
         this.location = location;
         this.provider = provider;
