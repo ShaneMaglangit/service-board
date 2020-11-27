@@ -13,17 +13,15 @@ const searchStyle = {
 
 const Header = () => {
     return(
-        <>
-            <div className="flex h-screen relative" style={headerStyle}>
-                <Navbar position="absolute top-0" />
-                <div className="flex-shrink h-full mx-auto flex flex-col items-center justify-center">
-                    {/* Header text */}
-                    <h1 className="text-3xl text-white font-bold font-display text-center">Receive services straight to your own home</h1>
-                    {/* Search bar */}
-                    <Search width="w-10/12" margin="mt-4" />
-                </div>
+        <div className="flex h-screen relative" style={headerStyle}>
+            <Navbar position="absolute top-0" />
+            <div className="flex-shrink h-full mx-auto flex flex-col items-center justify-center">
+                {/* Header text */}
+                <h1 className="text-3xl text-white font-bold font-display text-center">Receive services straight to your own home</h1>
+                {/* Search bar */}
+                <Search width="w-10/12" margin="mt-4" />
             </div>
-        </>
+        </div>
     )
 }
 

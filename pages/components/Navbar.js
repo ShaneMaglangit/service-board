@@ -5,8 +5,6 @@ const Navbar = ({position}) => {
     // useState to expand or hide the navigation menu for mobile
     const [isExpanded, toggleExpansion] = useState(false)
     return (
-        <>
-            {/* Wrapper for the navigation bar */}
             <div className={`w-full z-50 ${position}`}>
                 <nav className="container mx-auto flex flex-wrap items-center justify-between w-full p-6">
                     {/* Site logo */}
@@ -28,7 +26,6 @@ const Navbar = ({position}) => {
                     </div>
                 </nav>
             </div>
-        </>
     )
 }
 
