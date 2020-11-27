@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Navbar from "./components/Navbar.js"
 import Header from "./components/Header.js"
+import CategoryBar from "./components/CategoryBar.js"
 
 const Index = () => (
   <div className="container">
@@ -11,6 +12,7 @@ const Index = () => (
 
     <main className="container min-h-screen">
       <Header />
+      <CategoryBar />
     </main>
   </div>
 )
