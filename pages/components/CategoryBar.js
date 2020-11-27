@@ -5,7 +5,11 @@ const CategoryBar = () => {
     return(
         <div className="w-full shadow-md py-6">
             <ul className="w-11/12 mx-auto flex justify-around font-display text-sm font-semibold">
-                {categories.map((category) => <li>{category}</li>)}
+                {categories.map((category) => 
+                    <li key={category}>
+                        <a className="border-b-2 border-transparent hover:border-primary transition-all duration-100 ease-in" href="/">{category}</a>
+                    </li>
+                )}
             </ul>
         </div>
     )
