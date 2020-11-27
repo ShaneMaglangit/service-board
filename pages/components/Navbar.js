@@ -7,7 +7,7 @@ const Navbar = ({position, isLight, showSearch}) => {
     const [isExpanded, toggleExpansion] = useState(false)
     return (
             <div className={`w-full z-50 ${position}`}>
-                <nav className="container mx-auto flex items-center justify-between w-full p-6">
+                <nav className="container mx-auto flex items-center justify-between w-full px-6 pt-6 pb-2">
                     {/* Site logo */}
                     <a href="/" className={`${isLight ? "text-primary" : "text-white"} flex items-center flex-shrink-0 mr-6`}>
                         <span className="font-body font-bold text-xl tracking-tight">Site Title</span>

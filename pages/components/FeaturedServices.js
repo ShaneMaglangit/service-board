@@ -2,12 +2,12 @@ import Service from "../classes/Service"
 import HorizontalServiceCard from "./HorizontalServiceCard"
 
 var tempService = [
-    new Service("1", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 12.00, true, "Sampaloc, Manila", "David's Salon", "1"),
-    new Service("2", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 12.00, true, "Sampaloc, Manila", "David's Salon", "2"),
-    new Service("3", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 12.00, true, "Sampaloc, Manila", "David's Salon", "3"),
-    new Service("4", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 12.00, true, "Sampaloc, Manila", "David's Salon", "4"),
-    new Service("5", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 12.00, true, "Sampaloc, Manila", "David's Salon", "5"),
-    new Service("6", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 12.00, true, "Sampaloc, Manila", "David's Salon", "6")
+    new Service("1", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "1"),
+    new Service("2", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "2"),
+    new Service("3", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "3"),
+    new Service("4", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "4"),
+    new Service("5", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "5"),
+    new Service("6", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "6")
 ]
 
 const FeaturedServices = () => {
