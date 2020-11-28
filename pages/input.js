@@ -84,8 +84,8 @@ const Input = () => {
     return(
         <div className="">
             <Head>
-            <title>Service Board</title>
-            <link rel="icon" href="/favicon.ico" />
+                <title>Service Board</title>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main className="mx-auto container min-h-screen">

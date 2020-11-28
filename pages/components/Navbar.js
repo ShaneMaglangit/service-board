@@ -11,7 +11,7 @@ const Navbar = ({position, isLight, showSearch}) => {
                 <nav className="container mx-auto flex items-center justify-between w-full px-6 pt-6 pb-2">
                     {/* Site logo */}
                     <Link href="/">
-                        <a className={`${isLight ? "text-primary" : "text-white"} flex items-center flex-shrink-0 mr-6`}>
+                        <a className={`${isLight ? "text-primary" : "text-white"} flex items-center flex-shrink-0 mr-6 focus:outline-none`}>
                             <span className="font-body font-bold text-xl tracking-tight">Site Title</span>
                         </a>
                     </Link>

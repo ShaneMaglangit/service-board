@@ -28,9 +28,9 @@ const ServiceList = () => {
 
     return(
         <section className="w-11/12 mx-auto pb-6">
-            <div className="flex flex-wrap mt-4">
+            <div className="flex flex-wrap items-stretch mt-4">
                 {services.map((service) => 
-                    <div key={service.id} className="w-3/12 px-2 pb-4">
+                    <div key={service.id} className="flex w-3/12 px-2 pb-4">
                         <VerticalServiceCard service={service} /> 
                     </div>
                 )}
