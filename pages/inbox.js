@@ -10,7 +10,7 @@ const Inbox = () => {
     return(
         <div className="">
             <Head>
-                <title>Service Board</title>
+                <title>Inbox</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
         

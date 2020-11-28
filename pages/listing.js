@@ -18,7 +18,7 @@ const Listing = () => {
   return (
     <div className="">
       <Head>
-        <title>Service Board</title>
+        <title>Listings</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

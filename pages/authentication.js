@@ -7,7 +7,7 @@ import Footer from "../components/Footer.js"
 const Authentication = () => (
   <div className="">
     <Head>
-      <title>Service Board</title>
+      <title>Join Us</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 

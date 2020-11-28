@@ -33,7 +33,7 @@ const ServiceDetail = () => {
   return(
     <div className="">
       <Head>
-        <title>Service Board</title>
+        <title>Servir</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
