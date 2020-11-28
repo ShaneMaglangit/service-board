@@ -8,4 +8,4 @@ class Contact {
     }
 }
 
-export default Class
+export default Contact
