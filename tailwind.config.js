@@ -7,6 +7,9 @@ module.exports = {
       body: ["Poppins", "sans-serif"]
     },
     extend: {
+      fontSize: {
+        "xxs" : '.6rem',
+      },
       fontFamily: {
         sans: ["Poppins", "sans-serif"]
       },
