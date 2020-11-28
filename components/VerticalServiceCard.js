@@ -11,7 +11,7 @@ const VerticalServiceCard = ({service}) => {
         <Link as={`/${service.id}`} href="/[id]">
             <a className="flex flex-col h-full w-full items-stretch shadow-md">
                 <div className="h-40 w-full bg-gray-200" style={thumbnailStyle}></div>
-                <div className="flex flex-col justify-center flex-grow p-4">
+                <div className="flex flex-col items-start justify-start flex-grow p-4">
                     <p className="mb-1 text-xxs uppercase font-medium text-primary-dark">{service.location}</p>
                     <h3 className="text-xl font-display font-bold">{service.title}</h3>
                     <p className="font-body text-sm">{service.description}</p>
