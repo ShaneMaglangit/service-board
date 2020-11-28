@@ -1,9 +1,10 @@
 import Head from "next/head"
 import Navbar from "./components/Navbar.js"
-import Header from "./components/Header.js"
 import CategoryBar from "./components/CategoryBar.js"
 import Filter from "./components/Filter.js"
 import ServiceList from "./components/ServiceList.js"
+import "firebase/auth"
+import "firebase/firestore"
 
 const Listing = () => (
   <div className="">
