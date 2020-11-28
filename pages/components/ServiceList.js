@@ -7,24 +7,24 @@ require("firebase/firestore")
 
 const ServiceList = () => {
     const[services, setServices] = useState([])
-    const db = firebase.default.firestore()
 
     useEffect(() => {
-        db.collection("services")
-            .limit(24)
-            .get()
-            .then(snapshot => {
-                setServices(snapshot.docs.map((doc, i) => {
-                    const data = doc.data()
-                    return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
-                }))
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            })
-
-        return () => db()
-    }, [])
+        if(services.length === 0) {
+            const db = firebase.default.firestore()
+            db.collection("services")
+                .limit(24)
+                .get()
+                .then(snapshot => {
+                    setServices(snapshot.docs.map((doc, i) => {
+                        const data = doc.data()
+                        return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
+                    }))
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                })
+        }
+    }, [services])
 
     return(
         <section className="w-11/12 mx-auto pb-6">
