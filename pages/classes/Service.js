@@ -1,4 +1,4 @@
-class Service {
+export default class Service {
     constructor(id, thumbnail, title, category, description, rating, estimatedCost, isHourly, location, provider, providerId) {
         this.id = id;
         this.thumbnail = thumbnail;
@@ -13,5 +13,3 @@ class Service {
         this.providerId = providerId;
     }
 }
-
-export default Service
