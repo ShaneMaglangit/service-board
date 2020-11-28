@@ -30,7 +30,7 @@ const NavbarItems = ({isLight}) => {
             </Link>
             <button onClick={() => signOut()} className={`${signedIn ? "inline-block" : "hidden"} font-semibold mx-2 focus:outline-none`}>Logout</button>
             <Link href="/input">
-                <a className={`${isLight ? "bg-primary text-white" : "border-2 hover:bg-accent hover:border-transparent hover:shadow-md"} ${signedIn ? "inline-block" : "hidden"} mx-2 px-4 py-2 rounded transition duration-150 ease-in`}>Offer Service</a>
+                <a className={`${isLight ? "bg-primary text-white" : "border-2 hover:bg-accent hover:border-transparent hover:shadow-md"} ${signedIn ? "inline-block" : "hidden"} mx-2 px-4 py-2 rounded transition duration-150 ease-in text-center`}>Offer Service</a>
             </Link>
         </div>
     )

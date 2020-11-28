@@ -16,11 +16,10 @@ const ServiceList = ({sortType}) => {
         if(((router.asPath !== router.route || !router.asPath.includes("?")) && services.length === 0) || prevSort !== sortType) {
             const db = firebase.default.firestore()
             var query = router.query.search
+            var category = router.query.category
             var sortField
             var order
             prevSort = sortType
-
-            console.log("Fetching " + sortType)
 
             switch(parseInt(sortType)) {
                 case 1: 
@@ -36,22 +35,7 @@ const ServiceList = ({sortType}) => {
                     order = "desc";
             }
 
-            console.log(sortField + " " + order)
-
-            if(query === undefined || query === null || query === "") {
-                db.collection("services")
-                    .orderBy(sortField, order)
-                    .get()
-                    .then(snapshot => {
-                        setServices(snapshot.docs.map((doc, i) => {
-                            const data = doc.data()
-                            return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
-                        }))
-                    })
-                    .catch((error) => {
-                        console.log("Error getting documents: ", error);
-                    })
-            } else {
+            if(query !== undefined && query !== null && query !== "") {
                 db.collection("services")
                     .where("title", "==", query)
                     .orderBy(sortField, order)
@@ -65,12 +49,41 @@ const ServiceList = ({sortType}) => {
                     .catch((error) => {
                         console.log("Error getting documents: ", error);
                     })
+            } else if(category !== undefined && category !== null && category !== "") {
+                db.collection("services")
+                    .where("category", "==", category)
+                    .orderBy(sortField, order)
+                    .get()
+                    .then(snapshot => {
+                        setServices(snapshot.docs.map((doc, i) => {
+                            const data = doc.data()
+                            return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
+                        }))
+                    })
+                    .catch((error) => {
+                        console.log("Error getting documents: ", error);
+                    }) 
+            } else {
+                db.collection("services")
+                    .orderBy(sortField, order)
+                    .get()
+                    .then(snapshot => {
+                        setServices(snapshot.docs.map((doc, i) => {
+                            const data = doc.data()
+                            return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
+                        }))
+                    })
+                    .catch((error) => {
+                        console.log("Error getting documents: ", error);
+                    })
             }
+
+            console.log("Fetching")
         }
     }, [router, services, sortType])
 
     return(
-        <section className="w-11/12 mx-auto pb-6">
+        <section className="w-11/12 mx-auto min-h-screen pb-6">
             <div className="flex flex-wrap items-stretch mt-4">
                 {services.length === 0 && 
                     <div className="w-full h-96 flex justify-center items-center">
