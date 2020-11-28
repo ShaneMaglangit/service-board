@@ -1,8 +1,8 @@
 import Head from "next/head"
-import Navbar from "./components/Navbar.js"
-import Header from "./components/Header.js"
-import CategoryBar from "./components/CategoryBar.js"
-import FeaturedServices from "./components/FeaturedServices.js"
+import Navbar from "../components/Navbar.js"
+import Header from "../components/Header.js"
+import CategoryBar from "../components/CategoryBar.js"
+import FeaturedServices from "../components/FeaturedServices.js"
 
 const Index = () => (
   <div className="">

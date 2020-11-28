@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Navbar from "./components/Navbar.js"
+import Navbar from "../components/Navbar.js"
 import firebase from "firebase"
 import { useState } from "react"
 

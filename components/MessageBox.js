@@ -58,7 +58,7 @@ const MessageBox = ({selectedContactId, messages, selectedSender}) => {
                 <h3>{selectedSender === "" ? "Select conversation" : selectedSender}</h3>
             </div>
             <div className="flex flex-col-reverse border flex-1 bg-gray-50 z-10 p-4 overflow-auto">
-                {messages.map(message => {
+                {messages !== null && messages.map(message => {
                     return( 
                         <div className={`${signedIn && message.senderId === currentUser.uid ? "justify-end" : "justify-start"} w-full flex mb-2`}>
                             <p className={`${signedIn && message.senderId === currentUser.uid ? "bg-accent text-white" : "bg-gray-200"} px-4 py-2 rounded-full text-sm`}>{message.message}</p>

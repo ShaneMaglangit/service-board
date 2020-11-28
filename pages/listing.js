@@ -1,8 +1,8 @@
 import Head from "next/head"
-import Navbar from "./components/Navbar.js"
-import CategoryBar from "./components/CategoryBar.js"
-import Filter from "./components/Filter.js"
-import ServiceList from "./components/ServiceList.js"
+import Navbar from "../components/Navbar.js"
+import CategoryBar from "../components/CategoryBar.js"
+import Filter from "../components/Filter.js"
+import ServiceList from "../components/ServiceList.js"
 import "firebase/auth"
 import "firebase/firestore"
 

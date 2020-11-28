@@ -2,7 +2,7 @@ import ContactList from "./ContactList.js"
 import MessageBox from "./MessageBox.js"
 import {useState, useEffect} from 'react'
 import firebase from "firebase"
-import Message from "../../classes/Message.js"
+import Message from "../classes/Message.js"
 require("firebase/firestore")
 
 const Chat = () => {

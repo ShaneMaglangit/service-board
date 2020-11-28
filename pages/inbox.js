@@ -1,6 +1,6 @@
 import Head from "next/head"
-import Navbar from "./components/Navbar.js"
-import Chat from "./components/Chat.js"
+import Navbar from "../components/Navbar.js"
+import Chat from "../components/Chat.js"
 
 const Inbox = () => {
     const containerStyle = {
