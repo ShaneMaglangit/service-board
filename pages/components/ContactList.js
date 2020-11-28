@@ -36,10 +36,10 @@ const ContactList = ({getMessages}) => {
             {contacts.map(contact => {
                 const senderName = contact.members[0] !== currentUser.displayName ? contact.members[0] : contact.members[1]
                 return(
-                    <button onClick={() => getMessages(contact.id, senderName)} className="w-full flex flex-col border-b p-4 focus:outline-none">
-                        <h3 className="text-base font-display">{senderName}</h3>
-                        <p className="mb-1 truncate flex-grow text-sm text-gray-600">{contact.recentMessage}</p>
-                        <p className="text-gray-400 text-xs">{contact.lastUpdated.toDate().toLocaleString()}</p>
+                    <button onClick={() => getMessages(contact.id, senderName)} className="w-full flex flex-col border-b p-4 overflow-x-hidden focus:outline-none">
+                        <h3 className="w-full text-left text-base font-display">{senderName}</h3>
+                        <p className="w-full mb-1 text-left truncate flex-grow text-sm text-gray-600">{contact.recentMessage}</p>
+                        <p className="w-full text-left text-gray-400 text-xs">{contact.lastUpdated.toDate().toLocaleString()}</p>
                     </button>
                 )
             })}

@@ -28,11 +28,14 @@ const ServiceList = () => {
     return(
         <section className="w-11/12 mx-auto pb-6">
             <div className="flex flex-wrap items-stretch mt-4">
-                {services.map((service) => 
+                {services.length === 0 && 
+                    <div className="w-full h-96 flex justify-center items-center">
+                        <p className="text-gray-400">No services found</p>
+                    </div>}
+                {services.length > 0 && services.map((service) => 
                     <div key={service.id} className="flex w-3/12 px-2 pb-4">
                         <VerticalServiceCard service={service} /> 
-                    </div>
-                )}
+                    </div>)}
             </div>
             {/* <div className="flex">
                 <Link href="/">

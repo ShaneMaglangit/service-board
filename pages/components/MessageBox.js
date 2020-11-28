@@ -49,6 +49,7 @@ const MessageBox = ({selectedContactId, messages, selectedSender}) => {
         });
 
         setNewMessage("")
+        document.getElementById("#message-box").value = ""
     }
 
     return(
@@ -66,7 +67,7 @@ const MessageBox = ({selectedContactId, messages, selectedSender}) => {
                 })}
             </div>
             <div className="flex border py-2 px-4 z-20">
-                <input onChange={handleInputChange} className="shadow text-gray-600 rounded-lg flex-grow bg-white h-10 px-5 pr-16 text-sm rounded-xl focus:outline-none" type="text" placeholder="Say hello" name="message" />
+                <input id="#message-box" onChange={handleInputChange} className="shadow text-gray-600 rounded-lg flex-grow bg-white h-10 px-5 pr-16 text-sm rounded-xl focus:outline-none" type="text" placeholder="Enter your message..." name="message" />
                 <button onClick={() => sendMessage()} className="ml-4 text-primary focus:outline-none">
                     <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path d="M0 0h24v24H0z" fill="none"/>
