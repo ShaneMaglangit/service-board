@@ -1,4 +1,4 @@
-export default class Service {
+class Service {
     constructor(id, thumbnail, title, category, description, rating, estimatedCost, isHourly, location, provider, providerId) {
         this.id = id;
         this.thumbnail = thumbnail;
@@ -13,3 +13,5 @@ export default class Service {
         this.providerId = providerId;
     }
 }
+
+module.exports = Service

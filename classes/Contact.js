@@ -1,4 +1,4 @@
-export default class Contact {
+class Contact {
     constructor(id, lastUpdated, members, membersId, recentMessage) {
         this.id = id
         this.lastUpdated = lastUpdated
@@ -7,3 +7,5 @@ export default class Contact {
         this.recentMessage = recentMessage
     }
 }
+
+module.exports = Contact

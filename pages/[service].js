@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Navbar from "./components/Navbar.js"
 import { useRouter } from "next/router"
-import Service from "./classes/Service"
+import Service from "../classes/Service"
 import CategoryBar from "./components/CategoryBar.js"
 import ServiceOverview from "./components/ServiceOverview.js"
 import ServicePricing from "./components/ServicePricing.js"
