@@ -7,6 +7,7 @@ const Inbox = () => {
         height: `100vh`,
         maxHeight: `100vh`
     }
+    
     return(
         <div className="">
             <Head>

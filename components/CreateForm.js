@@ -1,19 +1,21 @@
-import Head from "next/head"
-import Navbar from "../components/Navbar.js"
 import firebase from "firebase"
 import { useState } from "react"
 
 require("firebase/firestore");
 
-const Input = () => {
+const CreateForm = () => {
     const [thumbnail, setThumbnail] = useState(null)
     const [title, setTitle] = useState("")
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
-    const [rating, setRating] = useState(0)
     const [estimatedCost, setEstimatedCost] = useState(0)
-    const [isHourly, setIsHourly] = useState(false)
     const [location, setLocation] = useState("")
+
+    const imageStyle = {
+        backgroundImage: `url("./form.jpg")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+    }
 
     function handleInputChange(event) {
         const target = event.target;
@@ -28,9 +30,7 @@ const Input = () => {
             case "title": setTitle(value); break;
             case "category": setCategory(value); break;
             case "description": setDescription(value); break;
-            case "rating": setRating(value); break;
             case "estimatedCost": setEstimatedCost(value); break;
-            case "isHourly": setIsHourly(value); break;
             case "location": setLocation(value); break;
         }
     }
@@ -55,57 +55,46 @@ const Input = () => {
                         title: title,
                         category: category,
                         description: description,
-                        rating: parseInt(rating),
+                        rating: 0,
                         estimatedCost: parseFloat(estimatedCost),
-                        isHourly: isHourly,
+                        isHourly: false,
                         location: location,
                         provider: currentUser.displayName,
                         providerId: currentUser.uid,
                     })
                     .then(function(docRef) {
                         console.log("Document written with ID: ", docRef.id);
+                        window.location.href="/" + docRef.id
                     })
                     .catch(function(error) {
                         alert('An error occurred while saving to the database');
                     });
-
-                    setThumbnail(null)
-                    setTitle("")
-                    setCategory("")
-                    setDescription("")
-                    setRating(0)
-                    setEstimatedCost(0)
-                    setIsHourly(false)
-                    setLocation("")
                 });
         });
     }
 
     return(
-        <div className="">
-            <Head>
-                <title>Service Board</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
-            <main className="mx-auto container min-h-screen">
-                <Navbar position="absolute top-0" showSearch={false} isLight={true} />
-                <div className="h-screen flex justify-center items-center">
-                    <div className="flex flex-col shadow p-2">
-                        <input onChange={handleInputChange} className="mb-2" type="file" name="thumbnail" />
-                        <input onChange={handleInputChange} className="mb-2 border" type="text" name="title" placeholder="title" />
-                        <input onChange={handleInputChange} className="mb-2 border" type="text" name="category" placeholder="category" />
-                        <input onChange={handleInputChange} className="mb-2 border" type="text" name="description" placeholder="desc" />
-                        <input onChange={handleInputChange} className="mb-2 border" type="number" name="rating" placeholder="rating" />
-                        <input onChange={handleInputChange} className="mb-2 border" type="number" name="estimatedCost" placeholder="cost" />
-                        <input onChange={handleInputChange} className="mb-2 border" type="checkbox" name="isHourly"/>
-                        <input onChange={handleInputChange} className="mb-2 border" type="text" name="location" placeholder="location" />
-                        <button onClick={() => submit()}>Submit</button>
+        <div className="w-full flex h-full">
+            <div className="w-2/5 flex items-center z-10 -mr-12 justify-end">
+                <div className="bg-gray-200 h-96 w-96" style={imageStyle}></div>
+            </div>
+            <div className="w-3/5 -ml-12 flex z-20 flex-col justify-center">
+                <div className="shadow-md p-6 bg-white">
+                    <div className="grid grid-rows-2 grid-cols-2 gap-2">
+                        <input onChange={handleInputChange} className="border text-sm rounded py-2 px-4" type="text" name="title" placeholder="Enter title" />
+                        <input onChange={handleInputChange} className="border text-sm rounded py-2 px-4" type="text" name="category" placeholder="Enter category" />
+                        <input onChange={handleInputChange} className="border text-sm rounded py-2 px-4" type="text" name="location" placeholder="Enter location" />
+                        <input onChange={handleInputChange} className="border text-sm rounded py-2 px-4" type="number" name="estimatedCost" placeholder="Enter pricing" />
+                    </div>
+                    <textarea onChange={handleInputChange} rows="6" className="w-full mt-2 border text-sm rounded py-2 px-4" name="description" placeholder="Enter a brief description of your service..." />
+                    <div className="flex items-center m-2">
+                        <input onChange={handleInputChange} className="text-sm flex-1" accept="image/*" type="file" name="thumbnail"/>
+                        <button onClick={() => submit()} className="bg-primary text-white font-display text-sm font-semibold rounded-md py-2 px-4 focus:outline-none">Post</button>
                     </div>
                 </div>
-            </main>
-    </div>
+            </div>
+        </div>
     )
 }
 
-export default Input
+export default CreateForm
