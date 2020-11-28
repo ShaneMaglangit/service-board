@@ -1,6 +1,12 @@
 import Image from 'next/image'
 
 const ServiceOverview = ({service}) => {
+    const thumbnailStyle = {
+        backgroundImage: `url(${service.thumbnail})`,
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+    }
+
     var stars = ""
 
     for(var i = 0; i < service.rating; i++) stars += "⭐"
@@ -13,7 +19,7 @@ const ServiceOverview = ({service}) => {
                 <p>📍 {service.location} | {service.provider}</p>
             </div>
             <span>{stars}</span>
-            <div className="my-4 h-96 bg-primary w-full"></div>
+            <div className="my-4 h-96 bg-gray-200 w-full" style={thumbnailStyle}></div>
             <p>{service.description}</p>
         </div>
     )

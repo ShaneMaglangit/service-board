@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useState } from "react"
 import firebase from "firebase"
+import Contact from "../classes/Contact.js"
 
 const ServicePricing = ({service}) => {
     const[signedIn, setIsSignedIn] = useState(false)
@@ -20,28 +21,45 @@ const ServicePricing = ({service}) => {
             const db = firebase.default.firestore()
             const message = "Hi, I would like to avail your service \"" + service.title + "\"."
 
-            db.collection("chat").doc(service.providerId).get().then((doc) => {
-                if(!doc.exists) {
-                    db.collection("chat").doc(service.providerId).set({
+            db.collection("chat").where("membersId", "array-contains", currentUser.uid).get().then((snapshots) => {
+                var existingContactId = null
+
+                var contacts = snapshots.docs.map((doc, i) => {
+                    const data = doc.data()
+                    return new Contact(doc.id, data.lastUpdated, data.members, data.membersId, data.recentMessage)
+                })
+
+                contacts.forEach(contact => {
+                    if(contact.membersId.includes(service.providerId)) {
+                        existingContactId = contact.id
+                        return
+                    }
+                })
+
+                console.log(existingContactId)
+                
+                if(existingContactId === null) {
+                    db.collection("chat").doc(existingContactId).set({
                         lastUpdated: firebase.default.firestore.Timestamp.now(),
                         members: [currentUser.displayName, service.provider],
                         membersId: [currentUser.uid, service.providerId],
                         recentMessage: message
                     }).then((chatSnapshot) => {
-                        sendMessage(db, currentUser.displayName, currentUser.uid, firebase.default.firestore.Timestamp.now(), message)
+                        sendMessage(db, existingContactId, currentUser.displayName, currentUser.uid, firebase.default.firestore.Timestamp.now(), message)
                     })
                 } else {
-                    sendMessage(db, currentUser.displayName, currentUser.uid, firebase.default.firestore.Timestamp.now(), message)
+                    sendMessage(db, existingContactId, currentUser.displayName, currentUser.uid, firebase.default.firestore.Timestamp.now(), message)
                 }
             })
             .catch(function(error) {
+                console.log(error)
                 alert('An error occurred while saving to the database');
             });
         }
     }
 
-    function sendMessage(db, sender, senderId, time, message) {
-        db.collection("chat").doc(service.providerId).collection("messages").add({
+    function sendMessage(db, chatId, sender, senderId, time, message) {
+        db.collection("chat").doc(chatId).collection("messages").add({
             sender: sender,
             senderId: senderId,
             time: time,
