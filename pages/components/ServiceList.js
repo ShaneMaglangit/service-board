@@ -1,4 +1,4 @@
-import Service from "../classes/Service"
+import Service from "../../classes/Service"
 import VerticalServiceCard from "./VerticalServiceCard"
 import Link from 'next/link'
 import firebase from "firebase"
