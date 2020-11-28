@@ -1,28 +1,32 @@
 import Service from "../classes/Service"
 import VerticalServiceCard from "./VerticalServiceCard"
 import Link from 'next/link'
-
-var tempService = [
-    new Service("1", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "1"),
-    new Service("2", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "2"),
-    new Service("3", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "3"),
-    new Service("4", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "4"),
-    new Service("5", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "5"),
-    new Service("6", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "6"),
-    new Service("7", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "7"),
-    new Service("8", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "8"),
-    new Service("9", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "9"),
-    new Service("10", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "10"),
-    new Service("11", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "11"),
-    new Service("12", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "12")
-]
+import firebase from "firebase"
+import { useState } from "react"
+require("firebase/firestore");
 
 const ServiceList = () => {
+    const[services, setServices] = useState([])
+    const db = firebase.default.firestore()
+
+    db.collection("services")
+        .limit(1)
+        .get()
+        .then(snapshot => {
+            setServices(snapshot.docs.map((doc, i) => {
+                const data = doc.data()
+                return new Service(data.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
+            }))
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        })
+
     return(
         <section className="w-11/12 mx-auto pb-6">
             <div className="flex flex-wrap mt-4">
-                {tempService.map((service, i) => 
-                    <div key="{service.id}" className="w-3/12 px-2 pb-4">
+                {services.map((service) => 
+                    <div key={service.id} className="w-3/12 px-2 pb-4">
                         <VerticalServiceCard service={service} /> 
                     </div>
                 )}
