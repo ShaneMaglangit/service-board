@@ -7,6 +7,7 @@ import ServiceOverview from "../components/ServiceOverview.js"
 import ServicePricing from "../components/ServicePricing.js"
 import { useState, useEffect } from "react"
 import firebase from "firebase"
+import Footer from "../components/Footer.js"
 require("firebase/firestore")
 
 const ServiceDetail = () => {
@@ -47,6 +48,7 @@ const ServiceDetail = () => {
                 {service !== null && <ServicePricing service={service} /> }
               </div>
           </div>
+          <Footer />
       </main>
     </div>
   )
