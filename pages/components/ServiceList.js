@@ -12,7 +12,6 @@ const ServiceList = () => {
         if(services.length === 0) {
             const db = firebase.default.firestore()
             db.collection("services")
-                .limit(24)
                 .get()
                 .then(snapshot => {
                     setServices(snapshot.docs.map((doc, i) => {
@@ -35,7 +34,7 @@ const ServiceList = () => {
                     </div>
                 )}
             </div>
-            <div className="flex">
+            {/* <div className="flex">
                 <Link href="/">
                     <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Previous</a>
                 </Link>
@@ -43,7 +42,7 @@ const ServiceList = () => {
                 <Link href="/">
                     <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Next</a>
                 </Link>
-            </div>
+            </div> */}
         </section>
     )
 }
