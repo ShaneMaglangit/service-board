@@ -44,7 +44,7 @@ const ContactList = ({getMessages}) => {
 
     return(
         <div className="border h-full overflow-y-auto">
-            {contacts.map(contact => {
+            {contacts !== null && contacts.map(contact => {
                 const senderName = contact.members[0] !== currentUser.displayName ? contact.members[0] : contact.members[1]
                 return(
                     <button onClick={() => getMessages(contact.id, senderName)} className="w-full flex flex-col border-b p-4 overflow-x-hidden focus:outline-none">

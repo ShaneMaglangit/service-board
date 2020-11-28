@@ -32,7 +32,7 @@ const FeaturedServices = () => {
         <section className="w-10/12 mx-auto py-12">
             <h1 className="text-xl font-bold font-display">Popular Services</h1>
             <div className="flex flex-wrap mt-4">
-                {services.map((service, i) => 
+                {services.length > 0 && services.map((service, i) => 
                     <div key={service.id} className={`${i % 2 === 0 ? "pr-4" : ""} w-1/2 pb-4`}>
                         <HorizontalServiceCard service={service} /> 
                     </div>

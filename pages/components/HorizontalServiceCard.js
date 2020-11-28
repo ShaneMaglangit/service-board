@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const ServiceCard = ({service}) => {
+const HorizontalServiceCard = ({service}) => {
     const thumbnailStyle = {
         backgroundImage: `url(${service.thumbnail})`,
         backgroundPosition: "center center",
@@ -18,4 +18,4 @@ const ServiceCard = ({service}) => {
     )
 }
 
-export default ServiceCard
+export default HorizontalServiceCard
