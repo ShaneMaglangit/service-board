@@ -8,7 +8,7 @@ import Footer from "../components/Footer.js"
 const Index = () => (
   <div className="">
     <Head>
-      <title>Service Board</title>
+      <title>Servir</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
