@@ -1,4 +1,4 @@
-export default class Message {
+class Message {
     constructor(id, sender, senderId, time, message) {
         this.id = id
         this.sender = sender
@@ -7,3 +7,5 @@ export default class Message {
         this.message = message
     }
 }
+
+module.exports = Message
