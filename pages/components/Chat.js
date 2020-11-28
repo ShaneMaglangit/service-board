@@ -12,7 +12,7 @@ const Chat = () => {
 
     function getMessages(id, senderName) {
         const db = firebase.default.firestore()
-        db.collection("chat").doc(id).collection("messages").orderBy("time", "asc")
+        db.collection("chat").doc(id).collection("messages").orderBy("time", "desc")
             .onSnapshot((snapshots) => {
                 setMessages(snapshots.docs.map((doc, i) => {
                     const data = doc.data()

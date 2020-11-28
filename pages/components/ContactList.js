@@ -15,14 +15,25 @@ const ContactList = ({getMessages}) => {
         }
     })
 
+    function updateContacts(data) {
+        var isFirstLoad = contacts.length === 0
+        setContacts(data)
+
+        if(isFirstLoad && data.length !== 0) {
+            const senderName = data[0].members[0] !== currentUser.displayName ? data[0].members[0] : data[0].members[1]
+            getMessages(data[0].id, senderName)
+        }
+    }
+
     useEffect(() => {
         if(!hasFetched && signedIn) {
             const db = firebase.default.firestore()
             currentUser = firebase.default.auth().currentUser
             db.collection("chat")
                 .where("membersId", "array-contains", currentUser.uid)
+                .orderBy("lastUpdated", "desc")
                 .onSnapshot((snapshots) => {
-                    setContacts(snapshots.docs.map((doc, i) => {
+                    updateContacts(snapshots.docs.map((doc, i) => {
                         const data = doc.data()
                         return new Contact(doc.id, data.lastUpdated, data.members, data.membersId, data.recentMessage)
                     }))
