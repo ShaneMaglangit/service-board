@@ -5,6 +5,7 @@ import Service from "../classes/Service"
 import CategoryBar from "../components/CategoryBar.js"
 import ServiceOverview from "../components/ServiceOverview.js"
 import ServicePricing from "../components/ServicePricing.js"
+import ServiceReview from "../components/ServiceReview.js"
 import { useState, useEffect } from "react"
 import firebase from "firebase"
 import Footer from "../components/Footer.js"
@@ -44,8 +45,9 @@ const ServiceDetail = () => {
               <div className="w-7/12">
                 {service !== null && <ServiceOverview service={service} /> }
               </div>
-              <div className="flex items-center pl-4 w-5/12">
+              <div className="flex flex-col pl-4 w-5/12">
                 {service !== null && <ServicePricing service={service} /> }
+                {service !== null && <ServiceReview service={service} /> }
               </div>
           </div>
           <Footer />
