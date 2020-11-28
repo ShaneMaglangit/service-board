@@ -12,7 +12,6 @@ const ServiceList = () => {
         if(services.length === 0) {
             const db = firebase.default.firestore()
             db.collection("services")
-                .limit(24)
                 .get()
                 .then(snapshot => {
                     setServices(snapshot.docs.map((doc, i) => {
@@ -28,14 +27,17 @@ const ServiceList = () => {
 
     return(
         <section className="w-11/12 mx-auto pb-6">
-            <div className="flex flex-wrap mt-4">
-                {services.map((service) => 
-                    <div key={service.id} className="w-3/12 px-2 pb-4">
+            <div className="flex flex-wrap items-stretch mt-4">
+                {services.length === 0 && 
+                    <div className="w-full h-96 flex justify-center items-center">
+                        <p className="text-gray-400">No services found</p>
+                    </div>}
+                {services.length > 0 && services.map((service) => 
+                    <div key={service.id} className="flex w-3/12 px-2 pb-4">
                         <VerticalServiceCard service={service} /> 
-                    </div>
-                )}
+                    </div>)}
             </div>
-            <div className="flex">
+            {/* <div className="flex">
                 <Link href="/">
                     <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Previous</a>
                 </Link>
@@ -43,7 +45,7 @@ const ServiceList = () => {
                 <Link href="/">
                     <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Next</a>
                 </Link>
-            </div>
+            </div> */}
         </section>
     )
 }
