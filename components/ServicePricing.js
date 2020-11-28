@@ -35,10 +35,8 @@ const ServicePricing = ({service}) => {
                         return
                     }
                 })
-
-                console.log(existingContactId)
                 
-                if(existingContactId === null) {
+                if(existingContactId !== null) {
                     db.collection("chat").doc(existingContactId).set({
                         lastUpdated: firebase.default.firestore.Timestamp.now(),
                         members: [currentUser.displayName, service.provider],
