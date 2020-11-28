@@ -1,4 +1,4 @@
-class Message {
+export default class Message {
     constructor(id, sender, senderId, time, message) {
         this.id = id
         this.sender = sender
@@ -7,5 +7,3 @@ class Message {
         this.message = message
     }
 }
-
-export default Message
