@@ -1,10 +1,16 @@
 import Link from 'next/link'
 
 const VerticalServiceCard = ({service}) => {
+    const thumbnailStyle = {
+        backgroundImage: `url(${service.thumbnail})`,
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+    }
+
     return(
         <Link as={`/${service.id}`} href="/[id]">
             <a className="flex flex-col items-stretch shadow-md">
-                <div className="h-40 w-full bg-primary"></div>
+                <div className="h-40 w-full bg-primary" style={thumbnailStyle}></div>
                 <div className="flex flex-col justify-center flex-grow p-4">
                     <h3 className="font-display font-semibold">{service.title}</h3>
                     <p className="font-body text-sm">{service.description}</p>
