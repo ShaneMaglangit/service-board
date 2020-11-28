@@ -15,7 +15,7 @@ const ServiceDetail = () => {
   const db = firebase.default.firestore()
 
   useEffect(() => {
-      if (router.asPath !== router.route) {
+      if (router.asPath !== router.route && service === null) {
         db.collection("services")
           .doc(router.query.service)
           .get()
@@ -26,8 +26,6 @@ const ServiceDetail = () => {
           .catch((error) => {
               console.log("Error getting documents: ", error);
           })
-  
-        return () => db()
       }
   }, [router])
 
