@@ -1,6 +1,6 @@
 import Head from "next/head"
-import Navbar from "./components/Navbar.js"
-import AuthenticationForm from "./components/AuthenticationForm.js"
+import Navbar from "../components/Navbar.js"
+import AuthenticationForm from "../components/AuthenticationForm.js"
 import firebase from "firebase/app"
 
 const Authentication = () => (

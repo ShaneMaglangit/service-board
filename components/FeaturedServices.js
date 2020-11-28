@@ -1,4 +1,4 @@
-import Service from "../../classes/Service"
+import Service from "../classes/Service"
 import HorizontalServiceCard from "./HorizontalServiceCard"
 import Link from 'next/link'
 import { useState, useEffect } from 'react'

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Contact from "../../classes/Contact.js"
+import Contact from "../classes/Contact.js"
 import firebase from "firebase"
 require("firebase/firestore")
 
