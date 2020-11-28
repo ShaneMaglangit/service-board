@@ -3,27 +3,47 @@ import VerticalServiceCard from "./VerticalServiceCard"
 import Link from 'next/link'
 import firebase from "firebase"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/router"
 require("firebase/firestore")
 
 const ServiceList = () => {
     const[services, setServices] = useState([])
+    const router = useRouter()
 
     useEffect(() => {
-        if(services.length === 0) {
+        if((router.asPath !== router.route || !router.asPath.includes("?")) && services.length === 0) {
             const db = firebase.default.firestore()
-            db.collection("services")
-                .get()
-                .then(snapshot => {
-                    setServices(snapshot.docs.map((doc, i) => {
-                        const data = doc.data()
-                        return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
-                    }))
-                })
-                .catch((error) => {
-                    console.log("Error getting documents: ", error);
-                })
+            var query = router.query.search
+            if(query === undefined || query === null || query === "") {
+                db.collection("services")
+                    .get()
+                    .then(snapshot => {
+                        console.log("Fetching")
+                        setServices(snapshot.docs.map((doc, i) => {
+                            const data = doc.data()
+                            return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
+                        }))
+                    })
+                    .catch((error) => {
+                        console.log("Error getting documents: ", error);
+                    })
+            } else {
+                db.collection("services")
+                    .where("title", "==", query)
+                    .get()
+                    .then(snapshot => {
+                        console.log("Fetching")
+                        setServices(snapshot.docs.map((doc, i) => {
+                            const data = doc.data()
+                            return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
+                        }))
+                    })
+                    .catch((error) => {
+                        console.log("Error getting documents: ", error);
+                    })
+            }
         }
-    }, [services])
+    }, [router, services])
 
     return(
         <section className="w-11/12 mx-auto pb-6">
