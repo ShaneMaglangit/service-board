@@ -5,12 +5,31 @@ import Service from "./classes/Service"
 import CategoryBar from "./components/CategoryBar.js"
 import ServiceOverview from "./components/ServiceOverview.js"
 import ServicePricing from "./components/ServicePricing.js"
+import { useState, useEffect } from "react"
+import firebase from "firebase"
+require("firebase/firestore")
 
 const ServiceDetail = () => {
+  const [service, setService] = useState(null)
   const router = useRouter()
-  const { serviceId } = router.query
+  const db = firebase.default.firestore()
 
-  const service = new Service("1", null, "Haircut", "Grooming", "Service includes cutting, styling, and treatment of the hair", 5, 12.00, true, "Sampaloc, Manila", "David's Salon", "1")
+  useEffect(() => {
+      if (router.asPath !== router.route) {
+        db.collection("services")
+          .doc(router.query.service)
+          .get()
+          .then(doc => {
+            const data = doc.data()
+            setService(new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId))
+          })
+          .catch((error) => {
+              console.log("Error getting documents: ", error);
+          })
+  
+        return () => db()
+      }
+  }, [router])
 
   return(
     <div className="">
@@ -24,10 +43,10 @@ const ServiceDetail = () => {
           <CategoryBar />
           <div className="flex items-stretch mx-auto w-11/12 py-6">
               <div className="w-7/12">
-                  <ServiceOverview service={service} />
+                {service !== null && <ServiceOverview service={service} /> }
               </div>
               <div className="flex items-center pl-4 w-5/12">
-                  <ServicePricing service={service} />
+                {service !== null && <ServicePricing service={service} /> }
               </div>
           </div>
       </main>
