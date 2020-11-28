@@ -6,19 +6,43 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 require("firebase/firestore")
 
-const ServiceList = () => {
+var prevSort = 1
+
+const ServiceList = ({sortType}) => {
     const[services, setServices] = useState([])
     const router = useRouter()
 
     useEffect(() => {
-        if((router.asPath !== router.route || !router.asPath.includes("?")) && services.length === 0) {
+        if(((router.asPath !== router.route || !router.asPath.includes("?")) && services.length === 0) || prevSort !== sortType) {
             const db = firebase.default.firestore()
             var query = router.query.search
+            var sortField
+            var order
+            prevSort = sortType
+
+            console.log("Fetching " + sortType)
+
+            switch(parseInt(sortType)) {
+                case 1: 
+                    sortField = "rating";
+                    order = "desc";
+                    break;
+                case 2:
+                    sortField = "estimatedCost";
+                    order = "asc";
+                    break;
+                default:
+                    sortField = "estimatedCost";
+                    order = "desc";
+            }
+
+            console.log(sortField + " " + order)
+
             if(query === undefined || query === null || query === "") {
                 db.collection("services")
+                    .orderBy(sortField, order)
                     .get()
                     .then(snapshot => {
-                        console.log("Fetching")
                         setServices(snapshot.docs.map((doc, i) => {
                             const data = doc.data()
                             return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
@@ -30,9 +54,9 @@ const ServiceList = () => {
             } else {
                 db.collection("services")
                     .where("title", "==", query)
+                    .orderBy(sortField, order)
                     .get()
                     .then(snapshot => {
-                        console.log("Fetching")
                         setServices(snapshot.docs.map((doc, i) => {
                             const data = doc.data()
                             return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
@@ -43,7 +67,7 @@ const ServiceList = () => {
                     })
             }
         }
-    }, [router, services])
+    }, [router, services, sortType])
 
     return(
         <section className="w-11/12 mx-auto pb-6">
