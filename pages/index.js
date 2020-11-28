@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.js"
 import Header from "../components/Header.js"
 import CategoryBar from "../components/CategoryBar.js"
 import FeaturedServices from "../components/FeaturedServices.js"
+import Footer from "../components/Footer.js"
 
 const Index = () => (
   <div className="">
@@ -15,6 +16,7 @@ const Index = () => (
       <Header />
       <CategoryBar />
       <FeaturedServices />
+      <Footer />
     </main>
   </div>
 )
