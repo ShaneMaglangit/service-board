@@ -37,15 +37,6 @@ const ServiceList = () => {
                         <VerticalServiceCard service={service} /> 
                     </div>)}
             </div>
-            {/* <div className="flex">
-                <Link href="/">
-                    <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Previous</a>
-                </Link>
-                <div className="flex-grow"></div>
-                <Link href="/">
-                    <a className="bg-primary rounded px-6 py-2 font-display text-white focus:outline-none">Next</a>
-                </Link>
-            </div> */}
         </section>
     )
 }
