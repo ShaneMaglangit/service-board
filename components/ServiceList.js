@@ -95,7 +95,7 @@ const ServiceList = ({sortType}) => {
                         <p className="text-gray-400">No services found</p>
                     </div>}
                 {services.length > 0 && services.map((service) => 
-                    <div key={service.id} className="flex w-3/12 px-2 pb-4">
+                    <div key={service.id} className="flex w-full md:w-4/12 lg:w-3/12 px-2 pb-4">
                         <VerticalServiceCard service={service} /> 
                     </div>)}
             </div>
