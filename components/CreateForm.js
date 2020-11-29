@@ -74,12 +74,13 @@ const CreateForm = () => {
     }
 
     return(
-        <div className="w-full flex flex-col md:flex-row h-full">
-            <div className="hidden md:flex w-full md:w-2/5 items-center z-10 md:-mr-12 justify-end">
-                <div className="bg-gray-200 h-96 w-full md:w-96" style={imageStyle}></div>
+        <div className="w-full flex flex-col md:flex-col-reverse lg:flex-row h-full">
+            <div className="hidden md:flex w-full lg:w-2/5 items-center z-10 lg:-mr-12 justify-end">
+                <div className="bg-gray-200 h-96 w-full lg:w-96" style={imageStyle}></div>
             </div>
-            <div className="w-full h-full md:w-3/5 md:-ml-12 flex z-20 flex-col justify-center">
-                <div className="md:shadow-md p-6 bg-white">
+            <div className="w-full h-full lg:w-3/5 lg:-ml-12 flex z-20 flex-col justify-center">
+                <div className="lg:shadow-lg p-6 bg-white">
+                    <h1 className="text-2xl font-display font-semibold mb-2 ml-2">Enter your service details</h1>
                     <div className="grid grid-rows-2 grid-cols-2 gap-2">
                         <input onChange={handleInputChange} className="border text-sm rounded py-2 px-4" type="text" name="title" placeholder="Enter title" />
                         <input onChange={handleInputChange} className="border text-sm rounded py-2 px-4" type="text" name="category" placeholder="Enter category" />
