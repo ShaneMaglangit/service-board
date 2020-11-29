@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const CategoryBar = () => {
-    var categories = ["Carpentry", "Plumbing", "Grooming", "Make-up Artist", "Tutor", "Car Wash", "Laundry", "Repair", "Cleaning Services"]
+    var categories = ["Grooming", "Relaxation", "Education", "Cleaning", "Home Improvements", "Healthcare", "Shopping", "Emotional Aid", "Repair", "Transporation"]
 
     return(
         <div className="w-full shadow py-4">
