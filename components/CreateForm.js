@@ -74,7 +74,7 @@ const CreateForm = () => {
     }
 
     return(
-        <div className="w-full flex flex-col md:flew-row h-full">
+        <div className="w-full flex flex-col md:flex-row h-full">
             <div className="hidden md:flex w-full md:w-2/5 items-center z-10 md:-mr-12 justify-end">
                 <div className="bg-gray-200 h-96 w-full md:w-96" style={imageStyle}></div>
             </div>
