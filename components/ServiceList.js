@@ -7,12 +7,14 @@ import { useRouter } from "next/router"
 require("firebase/firestore")
 
 var prevSort = 1
+var isEmpty = false
 
 const ServiceList = ({sortType}) => {
     const[services, setServices] = useState([])
     const router = useRouter()
 
     useEffect(() => {
+        if(isEmpty) return
         if(((router.asPath !== router.route || !router.asPath.includes("?")) && services.length === 0) || prevSort !== sortType) {
             const db = firebase.default.firestore()
             var query = router.query.search
@@ -36,6 +38,7 @@ const ServiceList = ({sortType}) => {
             }
 
             if(query !== undefined && query !== null && query !== "") {
+                console.log("Fetching")
                 db.collection("services")
                     .where("title", "==", query)
                     .orderBy(sortField, order)
@@ -45,11 +48,13 @@ const ServiceList = ({sortType}) => {
                             const data = doc.data()
                             return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
                         }))
+                        isEmpty = snapshot.docs.length === 0
                     })
                     .catch((error) => {
                         console.log("Error getting documents: ", error);
                     })
             } else if(category !== undefined && category !== null && category !== "") {
+                console.log("Fetching")
                 db.collection("services")
                     .where("category", "==", category)
                     .orderBy(sortField, order)
@@ -59,11 +64,13 @@ const ServiceList = ({sortType}) => {
                             const data = doc.data()
                             return new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId)
                         }))
+                        isEmpty = snapshot.docs.length === 0
                     })
                     .catch((error) => {
                         console.log("Error getting documents: ", error);
                     }) 
             } else {
+                console.log("Fetching")
                 db.collection("services")
                     .orderBy(sortField, order)
                     .get()
@@ -77,8 +84,6 @@ const ServiceList = ({sortType}) => {
                         console.log("Error getting documents: ", error);
                     })
             }
-
-            console.log("Fetching")
         }
     }, [router, services, sortType])
 
