@@ -60,8 +60,8 @@ const MessageBox = ({selectedContactId, messages, selectedSender}) => {
             <div className="flex flex-col-reverse border flex-1 bg-gray-50 z-10 p-4 overflow-auto">
                 {messages !== null && messages.map(message => {
                     return( 
-                        <div className={`${signedIn && message.senderId === currentUser.uid ? "justify-end" : "justify-start"} w-full flex mb-2`}>
-                            <p className={`${signedIn && message.senderId === currentUser.uid ? "bg-accent text-white" : "bg-gray-200"} px-4 py-2 rounded-full text-sm`}>{message.message}</p>
+                        <div className={`${signedIn && message.senderId === currentUser.uid ? "pl-36 justify-end" : "justify-start pr-36"} w-full flex mb-2`}>
+                            <p className={`${signedIn && message.senderId === currentUser.uid ? "bg-accent text-white text-right" : "text-left bg-gray-200"} px-4 py-2 rounded-3xl md:rounded-full text-sm`}>{message.message}</p>
                         </div>
                     )
                 })}
