@@ -19,7 +19,7 @@ const Navbar = ({position, isLight, showSearch}) => {
                     {/* Search bar */}
                     {showSearch === true && <Search classes="flex-1 shadow"/>}
                     {/* Hamburger icon */}
-                    <div className={`${isLight ? "ml-2" : "mr-4"} block md:hidden`} onClick={() => toggleExpansion(!isExpanded)} onKeyPress={() => toggleExpansion(!isExpanded)} role="button" tabIndex={0}>
+                    <div className={`${isLight ? "mx-2" : "mr-4"} block md:hidden`} onClick={() => toggleExpansion(!isExpanded)} onKeyPress={() => toggleExpansion(!isExpanded)} role="button" tabIndex={0}>
                         <button className={`${isLight ? "text-primary border-primary" : "text-white border-white"} flex items-center px-3 py-2 border rounded focus:outline-none`}>
                             <svg className="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
                                 <title>Menu</title>

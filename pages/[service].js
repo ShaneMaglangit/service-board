@@ -43,11 +43,11 @@ const ServiceDetail = () => {
           <Navbar showSearch={true} isLight={true} />
           <CategoryBar />
           <div className="container">
-            <div className="flex items-stretch mx-auto w-11/12 py-6">
-                <div className="w-7/12">
+            <div className="flex flex-col md:flex-row items-stretch mx-auto w-11/12 py-6">
+                <div className="w-full md:w-7/12">
                   {service !== null && <ServiceOverview service={service} /> }
                 </div>
-                <div className="flex flex-col pl-4 w-5/12">
+                <div className="flex flex-col mt-4 md:mt-0 md:pl-4 w-full md:w-5/12">
                   {service !== null && <ServicePricing service={service} /> }
                   {service !== null && <ServiceReview service={service} /> }
                 </div>
