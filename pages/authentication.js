@@ -9,6 +9,7 @@ const Authentication = () => (
     <Head>
       <title>Join Us</title>
       <link rel="icon" href="/favicon.ico" />
+      <meta charset="utf-8"></meta>
     </Head>
 
     <main className="mx-auto container min-h-screen">

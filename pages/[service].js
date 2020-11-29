@@ -35,6 +35,7 @@ const ServiceDetail = () => {
     <div className="">
       <Head>
         <title>Servir</title>
+        <meta charset="utf-8"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
