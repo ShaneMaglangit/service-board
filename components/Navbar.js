@@ -12,7 +12,7 @@ const Navbar = ({position, isLight, showSearch}) => {
                     {/* Site logo */}
                     <Link href="/">
                         <a className={`${isLight ? "text-primary" : "text-white"} flex items-center flex-shrink-0 mr-6 focus:outline-none`}>
-                            <span className="font-body font-bold text-xl tracking-tight">Servir</span>
+                            <span className="font-body font-bold text-2xl tracking-tight">Servir</span>
                         </a>
                     </Link>
                     {/* Search bar */}
