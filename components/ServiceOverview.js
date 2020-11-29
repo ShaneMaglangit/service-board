@@ -20,7 +20,7 @@ const ServiceOverview = ({service}) => {
             </div>
             <span>{stars}</span>
             <div className="my-4 h-96 bg-gray-200 w-full" style={thumbnailStyle}></div>
-            <p>{service.description}</p>
+            <p className="px-2">{service.description}</p>
         </div>
     )
 }
