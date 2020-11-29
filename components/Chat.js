@@ -28,7 +28,7 @@ const Chat = () => {
             <div className="md:w-3/12">
                 <ContactList getMessages={getMessages} />
             </div>
-            <div className="flex md:w-9/12">
+            <div className="flex-1 md:w-9/12">
                 <MessageBox selectedContactId={selectedContactId} messages={messages} selectedSender={selectedSender}/>
             </div>
         </div>
