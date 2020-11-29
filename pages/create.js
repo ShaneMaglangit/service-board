@@ -14,6 +14,7 @@ const Create = () => {
         <Head>
             <title>Create Service</title>
             <link rel="icon" href="/favicon.ico" />
+            <meta charset="utf-8"></meta>
         </Head>
     
         <main className="mx-auto flex flex-col container h-screen" style={containerStyle}>

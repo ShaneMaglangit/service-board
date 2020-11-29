@@ -13,6 +13,7 @@ const Inbox = () => {
             <Head>
                 <title>Inbox</title>
                 <link rel="icon" href="/favicon.ico" />
+                <meta charset="utf-8"></meta>
             </Head>
         
             <main className="mx-auto container flex flex-col" style={containerStyle}>
