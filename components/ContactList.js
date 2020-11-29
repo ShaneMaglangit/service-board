@@ -48,9 +48,10 @@ const ContactList = ({getMessages}) => {
                 const senderName = contact.members[0] !== currentUser.displayName ? contact.members[0] : contact.members[1]
                 return(
                     <button key={contact.id} onClick={() => getMessages(contact.id, senderName)} className="w-full flex flex-col border-b p-4 overflow-x-hidden focus:outline-none">
-                        <h3 className="w-full text-left text-base font-display">{senderName}</h3>
-                        <p className="w-full mb-1 text-left truncate flex-grow text-sm text-gray-600">{contact.recentMessage}</p>
-                        <p className="w-full text-left text-gray-400 text-xs">{contact.lastUpdated.toDate().toLocaleString()}</p>
+                        <h3 className="block md:hidden">{senderName.substring(0, 2)}</h3>
+                        <h3 className="hidden md:block w-full text-left text-base font-display">{senderName}</h3>
+                        <p className="hidden md:block w-full mb-1 text-left truncate flex-grow text-sm text-gray-600">{contact.recentMessage}</p>
+                        <p className="hidden md:block w-full text-left text-gray-400 text-xs">{contact.lastUpdated.toDate().toLocaleString()}</p>
                     </button>
                 )
             })}
