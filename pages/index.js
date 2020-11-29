@@ -10,7 +10,7 @@ const Index = () => (
     <Head>
       <title>Servir</title>
       <link rel="icon" href="/favicon.ico" />
-      <meta charset="utf-8"></meta>
+      <meta charSet="utf-8"></meta>
     </Head>
 
     <main className="mx-auto container min-h-screen">
