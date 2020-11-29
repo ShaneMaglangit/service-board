@@ -19,15 +19,17 @@ const Listing = () => {
     <div className="">
       <Head>
         <title>Listings</title>
-        <meta charset="utf-8"></meta>
+        <meta charSet="utf-8"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="mx-auto container min-h-screen">
+      <main className="mx-auto min-h-screen">
           <Navbar showSearch={true} isLight={true} />
           <CategoryBar />
-          <Filter setSort={setSort}/>
-          <ServiceList sortType={sortType}/>
+          <div className="mx-auto container">
+            <Filter setSort={setSort}/>
+            <ServiceList sortType={sortType}/>
+          </div>
           <Footer />
       </main>
     </div>

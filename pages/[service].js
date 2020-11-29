@@ -35,21 +35,23 @@ const ServiceDetail = () => {
     <div className="">
       <Head>
         <title>Servir</title>
-        <meta charset="utf-8"></meta>
+        <meta charSet="utf-8"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="mx-auto container min-h-screen">
+      <main className="mx-auto min-h-screen">
           <Navbar showSearch={true} isLight={true} />
           <CategoryBar />
-          <div className="flex items-stretch mx-auto w-11/12 py-6">
-              <div className="w-7/12">
-                {service !== null && <ServiceOverview service={service} /> }
-              </div>
-              <div className="flex flex-col pl-4 w-5/12">
-                {service !== null && <ServicePricing service={service} /> }
-                {service !== null && <ServiceReview service={service} /> }
-              </div>
+          <div className="container">
+            <div className="flex items-stretch mx-auto w-11/12 py-6">
+                <div className="w-7/12">
+                  {service !== null && <ServiceOverview service={service} /> }
+                </div>
+                <div className="flex flex-col pl-4 w-5/12">
+                  {service !== null && <ServicePricing service={service} /> }
+                  {service !== null && <ServiceReview service={service} /> }
+                </div>
+            </div>
           </div>
           <Footer />
       </main>
