@@ -16,7 +16,7 @@ const Inbox = () => {
                 <meta charSet="utf-8"></meta>
             </Head>
         
-            <main className="mx-auto container flex flex-col" style={containerStyle}>
+            <main className="mx-auto flex flex-col" style={containerStyle}>
                 <Navbar showSearch={true} isLight={true} />
                 <div className="flex flex-grow overflow-hidden">
                     <Chat />

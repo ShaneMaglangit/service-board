@@ -17,9 +17,9 @@ const Create = () => {
             <meta charSet="utf-8"></meta>
         </Head>
     
-        <main className="mx-auto flex flex-col container h-screen" style={containerStyle}>
+        <main className="mx-auto flex flex-col h-screen" style={containerStyle}>
             <Navbar showSearch={true} isLight={true} />
-            <div className="flex-1">
+            <div className="mx-auto container flex-1">
                 <CreateForm />
             </div>
             <Footer />

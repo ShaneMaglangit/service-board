@@ -13,7 +13,7 @@ const Index = () => (
       <meta charSet="utf-8"></meta>
     </Head>
 
-    <main className="mx-auto container min-h-screen">
+    <main className="mx-auto min-h-screen">
       <Header />
       <CategoryBar />
       <FeaturedServices />
