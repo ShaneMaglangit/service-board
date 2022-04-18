@@ -36,41 +36,42 @@ const CreateForm = () => {
     }
     
     function submit() {
-        // Upload to storage
-        const storage = firebase.default.storage()
-        const uploadTask = storage.ref(`/thumbnails/${thumbnail.name}`).put(thumbnail)
-        uploadTask.on("state_changed", console.log, console.error, () => {
-            storage
-                .ref("thumbnails")
-                .child(thumbnail.name)
-                .getDownloadURL()
-                .then((url) => {
-                    // Get current user
-                    const currentUser = firebase.default.auth().currentUser
+        window.alert("Project creation does not function on archive mode.")
+        // // Upload to storage
+        // const storage = firebase.default.storage()
+        // const uploadTask = storage.ref(`/thumbnails/${thumbnail.name}`).put(thumbnail)
+        // uploadTask.on("state_changed", console.log, console.error, () => {
+        //     storage
+        //         .ref("thumbnails")
+        //         .child(thumbnail.name)
+        //         .getDownloadURL()
+        //         .then((url) => {
+        //             // Get current user
+        //             const currentUser = firebase.default.auth().currentUser
 
-                    // Write to firestore
-                    const db = firebase.default.firestore()
-                    db.collection("services").add({
-                        thumbnail: url,
-                        title: title,
-                        category: category,
-                        description: description,
-                        rating: 0,
-                        estimatedCost: parseFloat(estimatedCost),
-                        isHourly: false,
-                        location: location,
-                        provider: currentUser.displayName,
-                        providerId: currentUser.uid,
-                    })
-                    .then(function(docRef) {
-                        console.log("Document written with ID: ", docRef.id);
-                        window.location.href="/" + docRef.id
-                    })
-                    .catch(function(error) {
-                        alert('An error occurred while saving to the database');
-                    });
-                });
-        });
+        //             // Write to firestore
+        //             const db = firebase.default.firestore()
+        //             db.collection("services").add({
+        //                 thumbnail: url,
+        //                 title: title,
+        //                 category: category,
+        //                 description: description,
+        //                 rating: 0,
+        //                 estimatedCost: parseFloat(estimatedCost),
+        //                 isHourly: false,
+        //                 location: location,
+        //                 provider: currentUser.displayName,
+        //                 providerId: currentUser.uid,
+        //             })
+        //             .then(function(docRef) {
+        //                 console.log("Document written with ID: ", docRef.id);
+        //                 window.location.href="/" + docRef.id
+        //             })
+        //             .catch(function(error) {
+        //                 alert('An error occurred while saving to the database');
+        //             });
+        //         });
+        // });
     }
 
     return(

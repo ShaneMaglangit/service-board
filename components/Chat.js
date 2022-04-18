@@ -3,24 +3,16 @@ import MessageBox from "./MessageBox.js"
 import {useState, useEffect} from 'react'
 import firebase from "firebase"
 import Message from "../classes/Message.js"
+import mockMessages from "../mock/mockMessages"
 require("firebase/firestore")
 
 const Chat = () => {
-    const [selectedSender, setSelectedSender] = useState("")
-    const [messages, setMessages] = useState([])
-    const [selectedContactId, setSelectedContactId] = useState("")
+    const [selectedSender, setSelectedSender] = useState("Jane Doe")
+    const [messages, setMessages] = useState(mockMessages)
+    const [selectedContactId, setSelectedContactId] = useState("1")
 
     function getMessages(id, senderName) {
-        const db = firebase.default.firestore()
-        db.collection("chat").doc(id).collection("messages").orderBy("time", "desc")
-            .onSnapshot((snapshots) => {
-                setMessages(snapshots.docs.map((doc, i) => {
-                    const data = doc.data()
-                    return new Message(doc.id, data.sender, data.senderId, data.timeSent, data.message)
-                }))
-                setSelectedSender(senderName)
-                setSelectedContactId(id)
-            })
+        setMessages(mockMessages)
     }
 
     return(

@@ -1,34 +1,15 @@
 import {useState, useEffect} from "react"
 import firebase from "firebase"
 import Reviews from "../classes/Reviews"
+import mockReviews from "../mock/mockReviews"
 require("firebase/firestore")
 
 var isFetched = false
 
 const ServiceReview = ({service}) => {
-    const [reviews, setReviews] = useState([])
+    const reviews = mockReviews
     const [reviewMessage, setReviewMessage] = useState("")
-    const [signedIn, setIsSignedIn] = useState(false)
-
-    firebase.default.auth().onAuthStateChanged(function(user) {
-        if(user) {
-            setIsSignedIn(true)
-        }
-    })
-
-    useEffect(() => {
-        if(!isFetched) {
-            const db = firebase.default.firestore()
-            db.collection("services").doc(service.id).collection("reviews").orderBy("timeCreated", "desc")
-                .onSnapshot((snapshots) => {
-                    setReviews(snapshots.docs.map((doc, i) => {
-                        const data = doc.data()
-                        return new Reviews(doc.id, data.sender, data.message, data.timeCreated)
-                    }))
-                })
-            isFetched = true
-        }
-    }, [])
+    const [signedIn, setIsSignedIn] = useState(true)
 
     function handleInputChange(event) {
         const target = event.target;
@@ -37,26 +18,7 @@ const ServiceReview = ({service}) => {
     }
 
     function submitReview() {
-        if(reviewMessage === null || reviewMessage === "") return
-
-        // Get current user
-        const currentUser = firebase.default.auth().currentUser
-
-        // Write to firestore
-        const db = firebase.default.firestore()
-
-        db.collection("services").doc(service.id).collection("reviews").add({
-            sender: currentUser.displayName,
-            timeCreated: firebase.default.firestore.Timestamp.now(),
-            message: reviewMessage
-        })
-        .then((snap) => {
-            setNewMessage("")
-            document.getElementById("#message-box").value = ""
-        })
-        .catch(function(error) {
-            alert('An error occurred while saving to the database');
-        });
+        window.alert("Review submission does not function on archive mode.")
     }
 
     return(

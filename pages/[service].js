@@ -9,25 +9,16 @@ import ServiceReview from "../components/ServiceReview.js"
 import { useState, useEffect } from "react"
 import firebase from "firebase"
 import Footer from "../components/Footer.js"
+import mockServices from "../mock/mockServices"
 require("firebase/firestore")
 
 const ServiceDetail = () => {
   const [service, setService] = useState(null)
   const router = useRouter()
-  const db = firebase.default.firestore()
 
   useEffect(() => {
       if (router.asPath !== router.route && service === null) {
-        db.collection("services")
-          .doc(router.query.service)
-          .get()
-          .then(doc => {
-            const data = doc.data()
-            setService(new Service(doc.id, data.thumbnail, data.title, data.category, data.description, data.rating, data.estimatedCost, data.isHourly, data.location, data.provider, data.providerId))
-          })
-          .catch((error) => {
-              console.log("Error getting documents: ", error);
-          })
+        setService(mockServices.find(service => service.id === router.query.service))
       }
   }, [router])
 

@@ -1,21 +1,9 @@
 import {useState, useEffect} from "react"
 import firebase from "firebase"
 
-const MessageBox = ({selectedContactId, messages, selectedSender}) => {
-    const[signedIn, setIsSignedIn] = useState(false)
+const MessageBox = ({messages, selectedSender}) => {
+    const signedIn = true
     const[newMessage, setNewMessage] = useState("")
-    var currentUser = firebase.default.auth().currentUser
-
-    useEffect(() => {
-        if(!signedIn) {
-            firebase.default.auth().onAuthStateChanged(function(user) {
-                if(user) {
-                    currentUser = firebase.default.auth().currentUser
-                    setIsSignedIn(true)
-                }
-            })
-        }
-    }, [signedIn])
 
     function handleInputChange(event) {
         const target = event.target;
@@ -25,31 +13,7 @@ const MessageBox = ({selectedContactId, messages, selectedSender}) => {
 
     function sendMessage() {
         if(newMessage === null || newMessage === "") return
-
-        // Get current user
-        const currentUser = firebase.default.auth().currentUser
-
-        // Write to firestore
-        const db = firebase.default.firestore()
-        const tempMessage = newMessage
-        db.collection("chat").doc(selectedContactId).collection("messages").add({
-            sender: currentUser.displayName,
-            senderId: currentUser.uid,
-            time: firebase.default.firestore.Timestamp.now(),
-            message: tempMessage
-        })
-        .then(function(docRef) {
-            db.collection("chat").doc(selectedContactId).update({
-                lastUpdated: firebase.default.firestore.Timestamp.now(),
-                recentMessage: tempMessage
-            })
-        })
-        .catch(function(error) {
-            alert('An error occurred while saving to the database');
-        });
-
-        setNewMessage("")
-        document.getElementById("#message-box").value = ""
+        window.alert("Sending message does not function on archive mode")
     }
 
     return(
@@ -60,8 +24,8 @@ const MessageBox = ({selectedContactId, messages, selectedSender}) => {
             <div className="flex flex-col-reverse border flex-1 bg-gray-50 z-10 p-4 overflow-auto">
                 {messages !== null && messages.map(message => {
                     return( 
-                        <div className={`${signedIn && message.senderId === currentUser.uid ? "pl-36 justify-end" : "justify-start pr-36"} w-full flex mb-2`}>
-                            <p className={`${signedIn && message.senderId === currentUser.uid ? "bg-accent text-white text-right" : "text-left bg-gray-200"} px-4 py-2 rounded-3xl md:rounded-full text-sm`}>{message.message}</p>
+                        <div className={`${signedIn && message.senderId === "0" ? "pl-36 justify-end" : "justify-start pr-36"} w-full flex mb-2`}>
+                            <p className={`${signedIn && message.senderId === "0" ? "bg-accent text-white text-right" : "text-left bg-gray-200"} px-4 py-2 rounded-3xl md:rounded-full text-sm`}>{message.message}</p>
                         </div>
                     )
                 })}
