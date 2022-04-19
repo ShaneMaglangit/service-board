@@ -1,7 +1,7 @@
 const featuredServices = [
     {
         "id": "xI1G7ZKUYQHCAy1YGBcx",
-        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/service-board-57028.appspot.com/o/thumbnails%2Fvance-osterhout-38OOhn_R6aA-unsplash.jpg?alt=media&token=3e66736f-d921-4c7b-be18-9e9e63eb7f6d",
+        "thumbnail": "https://images.unsplash.com/photo-1597484661973-ee6cd0b6482c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         "title": "Furniture Repair",
         "category": "Repair",
         "description": "Specify your needs and we'll make it for you",
@@ -14,7 +14,7 @@ const featuredServices = [
     },
     {
         "id": "w8KHP6PrHkUPdGMi21wN",
-        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/service-board-57028.appspot.com/o/thumbnails%2Fpexels-blaz-erzetic-2628105.jpg?alt=media&token=30239ccb-14b9-4f77-8b95-175d4beaaba9",
+        "thumbnail": "https://images.unsplash.com/photo-1597484661973-ee6cd0b6482c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         "title": "Cellphone Repair",
         "category": "Repair",
         "description": "Install Screen Protector, Battery, Repair shattered screen",
@@ -27,7 +27,7 @@ const featuredServices = [
     },
     {
         "id": "WlZPnBzrW7ufDrtoNeel",
-        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/service-board-57028.appspot.com/o/thumbnails%2Fpexels-anderson-guerra-1115128.jpg?alt=media&token=f1af8a33-6b56-4800-b159-6f4f946eaaf8",
+        "thumbnail": "https://images.unsplash.com/photo-1597484661973-ee6cd0b6482c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         "title": "Make-up Artist",
         "category": "Grooming",
         "description": " We do polished makeup application on various skin types.",
@@ -40,7 +40,7 @@ const featuredServices = [
     },
     {
         "id": "3fLgzmuDoonuon0tGHFI",
-        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/service-board-57028.appspot.com/o/thumbnails%2F3236267.jpg?alt=media&token=ad966640-6474-4365-b70b-a26a4c9a6a0b",
+        "thumbnail": "https://images.unsplash.com/photo-1597484661973-ee6cd0b6482c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         "title": "Haircut",
         "category": "Grooming",
         "description": "Services includes hair cutting, styling, and treatments.",
@@ -53,7 +53,7 @@ const featuredServices = [
     },
     {
         "id": "FKwNmt33KFriszx9g0GA",
-        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/service-board-57028.appspot.com/o/thumbnails%2Fkris-atomic-Xa8fX8bQCgs-unsplash.jpg?alt=media&token=61525a81-2e88-4098-a6fd-bc25a3840e61",
+        "thumbnail": "https://images.unsplash.com/photo-1597484661973-ee6cd0b6482c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         "title": "Manicure",
         "category": "Grooming",
         "description": "Includes trimming, shaping, filing, and buffing your nails.",
@@ -66,7 +66,7 @@ const featuredServices = [
     },
     {
         "id": "AnBKianiUASEqe40qz8n",
-        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/service-board-57028.appspot.com/o/thumbnails%2Fpexels-pixabay-271711.jpg?alt=media&token=e978935b-5247-46e8-bc37-550ad9a3e163",
+        "thumbnail": "https://images.unsplash.com/photo-1597484661973-ee6cd0b6482c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
         "title": "Laundry",
         "category": "Cleaning",
         "description": "Washing, Drying, and Folding",

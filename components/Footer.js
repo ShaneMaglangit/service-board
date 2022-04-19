@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 const Footer = () => {
-    return(
+    return (
         <div className="px-12 py-4 bg-black">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <Link href="/">
@@ -9,7 +9,8 @@ const Footer = () => {
                         <span className="font-display text-white font-bold text-base tracking-tight">Servir</span>
                     </a>
                 </Link>
-                <p className="text-white text-center text-xs font-body">Copyright © 2020 codeJAMS. All rights reserved.</p>
+                <p className="text-white text-center text-xs font-body">Copyright © 2020 codeJAMS. All rights
+                    reserved.</p>
             </div>
         </div>
     )

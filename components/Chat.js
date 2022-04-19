@@ -1,10 +1,7 @@
 import ContactList from "./ContactList.js"
 import MessageBox from "./MessageBox.js"
-import {useState, useEffect} from 'react'
-import firebase from "firebase"
-import Message from "../classes/Message.js"
+import {useState} from 'react'
 import mockMessages from "../mock/mockMessages"
-require("firebase/firestore")
 
 const Chat = () => {
     const [selectedSender, setSelectedSender] = useState("Jane Doe")
@@ -15,10 +12,10 @@ const Chat = () => {
         setMessages(mockMessages)
     }
 
-    return(
+    return (
         <div className="flex w-full">
             <div className="md:w-3/12">
-                <ContactList getMessages={getMessages} />
+                <ContactList getMessages={getMessages}/>
             </div>
             <div className="flex-1 md:w-9/12">
                 <MessageBox selectedContactId={selectedContactId} messages={messages} selectedSender={selectedSender}/>

@@ -7,7 +7,7 @@ const VerticalServiceCard = ({service}) => {
         backgroundSize: "cover",
     }
 
-    return(
+    return (
         <Link as={`/${service.id}`} href="/[id]">
             <a className="flex flex-col h-full w-full items-stretch shadow-md">
                 <div className="h-40 w-full bg-gray-200" style={thumbnailStyle}></div>
@@ -18,7 +18,7 @@ const VerticalServiceCard = ({service}) => {
                 </div>
                 <div className="flex items-center border-t px-3 py-2">
                     <h4>⭐ {service.rating}</h4>
-                    <p className="flex-grow text-sm text-gray-600 text-right">Price starts at 
+                    <p className="flex-grow text-sm text-gray-600 text-right">Price starts at
                         <span className="text-base font-semibold text-primary-dark"> ₱{service.estimatedCost}</span>
                     </p>
                 </div>

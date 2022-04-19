@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 const ServiceOverview = ({service}) => {
     const thumbnailStyle = {
         backgroundImage: `url(${service.thumbnail})`,
@@ -9,9 +7,9 @@ const ServiceOverview = ({service}) => {
 
     var stars = ""
 
-    for(var i = 0; i < service.rating; i++) stars += "⭐"
+    for (var i = 0; i < service.rating; i++) stars += "⭐"
 
-    return(
+    return (
         <div className="w-full">
             <h6 className="font-body text-sm font-semibold text-accent">{service.category}</h6>
             <h1 className="text-3xl font-semibold fold-display">{service.title}</h1>

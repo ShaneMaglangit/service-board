@@ -7,19 +7,19 @@ const Inbox = () => {
         height: `100vh`,
         maxHeight: `100vh`
     }
-    
-    return(
+
+    return (
         <div className="">
             <Head>
                 <title>Inbox</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/favicon.ico"/>
                 <meta charSet="utf-8"></meta>
             </Head>
-        
+
             <main className="mx-auto flex flex-col" style={containerStyle}>
-                <Navbar showSearch={true} isLight={true} />
+                <Navbar showSearch={true} isLight={true}/>
                 <div className="flex flex-grow overflow-hidden">
-                    <Chat />
+                    <Chat/>
                 </div>
             </main>
         </div>

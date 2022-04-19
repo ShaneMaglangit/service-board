@@ -19,7 +19,7 @@ const HorizontalServiceCard = ({service}) => {
                     </div>
                     <div className="flex items-center border-t px-3 md:px-4 py-2">
                         <h4 className="text-sm md:text-xs">⭐ {service.rating}</h4>
-                        <p className="flex-grow text-sm md:text-xs text-gray-600 text-right">Price starts at 
+                        <p className="flex-grow text-sm md:text-xs text-gray-600 text-right">Price starts at
                             <span className="text-sm font-semibold text-primary-dark"> ₱{service.estimatedCost}</span>
                         </p>
                     </div>

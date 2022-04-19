@@ -8,14 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "firebase": "^8.1.1",
-    "firebaseui": "^4.7.1",
     "next": "^10.0.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-firebaseui": "^4.1.0",
-    "typeface-poppins": "^1.1.13",
-    "typeface-sora": "^1.1.13"
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "postcss": "^8.1.10",
