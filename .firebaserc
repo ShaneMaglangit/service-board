@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "shanemaglangit-fc3e9"
+  },
+  "targets": {
+    "shanemaglangit-fc3e9": {
+      "hosting": {
+        "servir": [
+          "servir-archive"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "target": "servir",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**/**",
+        "function": "nextjs-server"
+      }
+    ]
+  }
+}
